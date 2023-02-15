@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New ToDo Task</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h3> Add New Task</h3>
+    <form action="#" th:action="@{/addTask}"  th:object="${addToDoObj}"  method="POST" class= "mb-6 col-6">
+        <input type="text" th:field = "*{task}" placeholder="New Task" class="form-control mb-4 col-4"></br>
+        <input type="text" th:field = "*{status}" placeholder="Task Status" class="form-control mb-4 col-4"></br>
+        <input type="date" th:field = "*{cur_date}" placeholder="Date" class="form-control mb-4 col-4">
+</br></br>
+        <button type="submit" class="btn btn-success col-2">Add</button>
+    </form>
+  </div>
+</body>
+</html>

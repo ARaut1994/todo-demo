@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="page-header">
+  <h2>Todo List</h2>
+</div>
+<div  class="container">
+    <a th:href="@{/addToDo}" class="btn btn-success btn-sm mb-3"> Add ToDo </a><br><br><br>
+    <table class="table table-striped table-responsive-md" id="todo-table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Task</th>
+                <th>Status</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="list : ${toDoList}">
+                <td th:text="${list.id}"></td>
+                <td th:text="${list.task}"></td>
+                <td th:text="${list.status}"></td>
+                <td th:text="${list.cur_date}"></td>
+                <td><a th:href="@{/editToDo/{id}(id=${list.id})}" class="btn btn-primary">Edit </a>
+                    <a th:href="@{/deleteToDo/{id}(id=${list.id})}" class="btn btn-danger">Delete </a> </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
